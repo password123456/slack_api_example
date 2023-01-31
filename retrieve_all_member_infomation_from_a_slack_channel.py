@@ -19,7 +19,7 @@ class Bcolors:
     UNDERLINE = '\033[4m'
 
 
-def get_channel_emails(channel_id: str):
+def get_user_list_from_channel(channel_id: str):
     slack_api_bot_token = 'YOUR_BOT_TOKEN'
     
     ## Require BOT permission ##
@@ -67,7 +67,7 @@ def main():
     #channel id: https://app.slack.com/huddle/TB37ZG064/CB3CF4A7B
     #if end of URL string starts with "C", it means CHANNEL
 
-    get_channel_emails('CB3CF4A7B')
+    get_user_list_from_channel('CB3CF4A7B')
 
 
 if __name__ == '__main__':
