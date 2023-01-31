@@ -64,10 +64,10 @@ def get_channel_emails(channel_id: str):
 
 
 def main():
-    #channel id: https://app.slack.com/huddle/TB37ZG064/CB3CFSB7B
+    #channel id: https://app.slack.com/huddle/TB37ZG064/CB3CF4A7B
     #if end of URL string starts with "C", it means CHANNEL
 
-    get_channel_emails('CB3CFSB7B')
+    get_channel_emails('CB3CF4A7B')
 
 
 if __name__ == '__main__':
