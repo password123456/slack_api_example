@@ -67,6 +67,9 @@ def main():
     #channel id: https://app.slack.com/huddle/TB37ZG064/CB3CF4A7B
     #if end of URL string starts with "C", it means CHANNEL
 
+    # Require Package slack-sdk
+    # pip install slack-sdk
+    
     get_user_list_from_channel('CB3CF4A7B')
 
 
