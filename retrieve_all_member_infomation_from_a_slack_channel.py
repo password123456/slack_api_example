@@ -1,8 +1,8 @@
 __author__ = 'https://github.com/password123456/'
 __version__ = '1.0.0-230131'
 
-import slack
 import sys
+from slack_sdk import WebClient
 
 
 class Bcolors:
@@ -30,7 +30,7 @@ def get_user_list_from_channel(channel_id: str):
     # mpim:read
     # users:read
 
-    client = slack.WebClient(token=slack_api_bot_token)
+    client = WebClient(token=slack_api_bot_token)
     result = client.conversations_members(channel=channel_id)
     i = 0
     for user in result['members']:
