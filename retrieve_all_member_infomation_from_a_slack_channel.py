@@ -19,7 +19,7 @@ class Bcolors:
     UNDERLINE = '\033[4m'
 
 
-def get_user_list_from_channel(channel_id: str):
+def get_user_list_of_channel(channel_id):
     slack_api_bot_token = 'YOUR_BOT_TOKEN'
     
     ## Require BOT permission ##
@@ -70,7 +70,7 @@ def main():
     # Require Package slack-sdk
     # pip install slack-sdk
     
-    get_user_list_from_channel('CB3CF4A7B')
+    get_user_list_of_channel('CB3CF4A7B')
 
 
 if __name__ == '__main__':
