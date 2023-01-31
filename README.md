@@ -12,5 +12,5 @@
 
 # Code
 - python requests: [send to webhook with markdown.py](https://github.com/password123456/slack_example/blob/main/send_to_slack_webhook_with_mrkdwn.py)
-- python slackclient: [retrieve all member list of channel with user information.py]( https://github.com/password123456/slack_example/blob/main/retrieve_all_member_infomation_from_a_slack_channel.py)
+- python slack-sdk: [retrieve all member list of channel with user information.py]( https://github.com/password123456/slack_example/blob/main/retrieve_all_member_infomation_from_a_slack_channel.py)
 - python slack-sdk: [retrieve all member list of Team with user information.py](https://github.com/password123456/slack_api_example/blob/main/retrieve_all_member_infomation_from_a_slack_team.py)
