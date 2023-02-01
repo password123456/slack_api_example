@@ -43,7 +43,7 @@ Refer to a API guide [link](https://api.slack.com/methods)
 
 
 # Code example
-(1) [send to webhook with markdown.py](https://github.com/password123456/slack_example/blob/main/send_to_slack_webhook_with_mrkdwn.py)
+(1) [send webhook with markdown message](https://github.com/password123456/slack_api_example/tree/main/send_webhook_with_markdown)
 
 (2) [get list of all member of the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_all_user_list_of_channel)
 
