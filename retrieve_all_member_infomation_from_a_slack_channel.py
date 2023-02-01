@@ -1,8 +1,9 @@
 __author__ = 'https://github.com/password123456/'
-__version__ = '1.0.0-230131'
+__version__ = '1.0.1-230201'
 
 import sys
 from slack_sdk import WebClient
+from slack_sdk.errors import SlackApiError
 
 
 class Bcolors:
@@ -19,59 +20,49 @@ class Bcolors:
     UNDERLINE = '\033[4m'
 
 
-def get_user_list_of_channel(channel_id):
-    slack_api_bot_token = 'YOUR_BOT_TOKEN'
-    
-    ## Require BOT permission ##
-    
-    # channels:read
-    # groups:read
-    # im:read
-    # mpim:read
-    # users:read
+def get_user_list_of_channel(token, channel_id):
+    client = WebClient(token=token)
 
-    client = WebClient(token=slack_api_bot_token)
-    result = client.conversations_members(channel=channel_id)
-    i = 0
-    for user in result['members']:
-        #print(user)
-        info = client.users_info(user=user).data
-        i = i + 1
-        #print(info)
+    try:
+        result = client.conversations_members(channel=channel_id)
+        i = 0
+        for user in result['members']:
+            try:
+                info = client.users_info(user=user).data
+                if not info['user']['is_bot']:
+                    i = i + 1
 
-        member_id = info['user']['id']
-        team_id = info['user']['team_id']
-        display_name = info['user']['name']
-        real_name = info['user']['real_name']
-        phone = info['user']['profile']['phone']
-        email = info['user']['profile']['email']
+                    member_id = info['user']['id']
+                    team_id = info['user']['team_id']
+                    display_name = info['user']['name']
+                    real_name = info['user']['real_name']
+                    phone = info['user']['profile']['phone']
+                    email = info['user']['profile']['email']
 
-        if not member_id:
-            member_id = 'null'
-        elif not team_id:
-            team_id = 'null'
-        elif not display_name:
-            display_name = 'null'
-        elif not real_name:
-            real_name = 'null'
-        elif not phone:
-            phone = 'null'
-        elif not email:
-            email = 'null'
+                    if not member_id:
+                        member_id = 'null'
+                    elif not team_id:
+                        team_id = 'null'
+                    elif not display_name:
+                        display_name = 'null'
+                    elif not real_name:
+                        real_name = 'null'
+                    elif not phone:
+                        phone = 'null'
+                    elif not email:
+                        email = 'null'
 
-        print(f'{i},{real_name},{display_name},{team_id},{member_id},{email},{phone}')
-
-
+                    print(f'{i},{real_name},{display_name},{team_id},{member_id},{email},{phone}')
+            except SlackApiError as e:
+                print(f'{Bcolors.Yellow}- Api Error:: {e} {Bcolors.Endc}')
+    except SlackApiError as e:
+        print(f'{Bcolors.Yellow}- Api Error:: {e} {Bcolors.Endc}')
 
 def main():
-    #channel id: https://app.slack.com/huddle/TB37ZG064/CB3CF4A7B
-    #if end of URL string starts with "C", it means CHANNEL
+    bot_token = 'YOUR_BOT_TOKEN'
+    channel = 'channel_id_you_want_to_know'
 
-    # Require Package slack-sdk
-    # pip install slack-sdk
-    
-    get_user_list_of_channel('CB3CF4A7B')
-
+    get_user_list_of_channel(bot_token, channel)
 
 if __name__ == '__main__':
     try:
@@ -79,4 +70,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         sys.exit(0)
     except Exception as e:
-        print(f'{Bcolors.Yellow}- ::Exception:: Func:[{__name__.__name__}] Line:[{sys.exc_info()[-1].tb_lineno}] [{type(e).__name__}] {e}{Bcolors.Endc}')
+        print(f'{Bcolors.Yellow}- ::Exception:: Func:[{__name__.__name__}] '
+              f'Line:[{sys.exc_info()[-1].tb_lineno}] [{type(e).__name__}] {e}{Bcolors.Endc}')
+
