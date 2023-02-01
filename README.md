@@ -43,10 +43,13 @@ Refer to a API guide [link](https://api.slack.com/methods)
 
 
 # Code example
-- [send to webhook with markdown.py](https://github.com/password123456/slack_example/blob/main/send_to_slack_webhook_with_mrkdwn.py)
-- [get list of all member of the specific channel with user's information]( https://github.com/password123456/slack_example/blob/main/retrieve_all_member_infomation_from_a_slack_channel.py)
-- [get list of all member of the whole Team with user's information](https://github.com/password123456/slack_api_example/blob/main/retrieve_all_member_infomation_from_a_slack_team.py)
-- [get list of uploaded file, user information on the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_uploaded_file_info)
+(1) [send to webhook with markdown.py](https://github.com/password123456/slack_example/blob/main/send_to_slack_webhook_with_mrkdwn.py)
+
+(2) [get list of all member of the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_all_user_list_of_channel)
+
+(3) [get list of all member of the whole workspace](hm.py)
+
+(4) [get list of uploaded file, user information on the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_uploaded_file_info)
 
 
 
