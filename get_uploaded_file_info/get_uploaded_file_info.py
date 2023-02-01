@@ -100,3 +100,5 @@ if __name__ == '__main__':
     except Exception as e:
         print(f'{Bcolors.Yellow}- ::Exception:: Func:[{__name__.__name__}] '
               f'Line:[{sys.exc_info()[-1].tb_lineno}] [{type(e).__name__}] {e}{Bcolors.Endc}')
+
+        
