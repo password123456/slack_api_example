@@ -13,7 +13,7 @@
 ## How to set up
 1. Install `slack-sdk` library
 ```
-(user) $ pip install slack-sdk 
+(user) $ pip install slack_sdk 
 ```
 
 2. Create Slack application bot and Set authorization scopes
