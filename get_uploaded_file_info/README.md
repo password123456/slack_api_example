@@ -1,5 +1,6 @@
 # Bot Token Scopes
 - Two api are used.
+- And bot must be in the channel on which you want to view the list of upload files.
 
 1) https://api.slack.com/methods/conversations.history
 
