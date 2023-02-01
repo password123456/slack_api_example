@@ -22,7 +22,7 @@ class Bcolors:
 
 
 def send_to_slack(message):
-    webhook_url = f"https://hooks.slack.com/services/~~~~"
+    webhook_url = 'YOUR WEBHOOK URL'
 
     header = {
         'Content-Type': 'application/json',
