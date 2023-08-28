@@ -1,5 +1,5 @@
 __author__ = 'https://github.com/password123456/'
-__version__ = '1.0.1-230201'
+__version__ = '1.0.2-230828'
 
 import sys
 from slack_sdk import WebClient
@@ -20,20 +20,24 @@ class Bcolors:
     UNDERLINE = '\033[4m'
 
 
-def get_all_user_of_the_team(token):
+def get_all_users_in_workspace(token):
     client = WebClient(token=token)
 
     try:
-        result = client.users_list()
+        # https://api.slack.com/methods/users.list
+        # The 'limit' parameter should be adjusted to match your environment. Default 0 (unlimited)
+        # The maximum number of user lists to return. Fewer than the requested number of items may be returned
+        result = client.users_list(limit=100)
         i = 0
         for info in result['members']:
+            # Exclude Bot Accounts
             if not info['id'] == 'USLACKBOT':
                 if not info['is_bot']:
                     i = i + 1
                     member_id = info['id']
                     team_id = info['team_id']
-                    display_name = info['name']
-                    real_name = info['real_name']
+                    display_name = info['profile']['display_name']
+                    real_name = info['profile']['real_name']
                     phone = info['profile']['phone']
                     email = info['profile']['email']
 
@@ -56,9 +60,8 @@ def get_all_user_of_the_team(token):
 
 
 def main():
-    bot_token = 'YOUR_BOT_TOKEN'
-
-    get_all_user_of_the_team(bot_token)
+    bot_token = 'slack_apps_oauth_token(bot_token)'
+    get_all_users_in_workspace(bot_token)
 
 
 if __name__ == '__main__':
@@ -70,5 +73,4 @@ if __name__ == '__main__':
         print(
             f'{Bcolors.Yellow}- ::Exception:: Func:[{__name__.__name__}] '
             f'Line:[{sys.exc_info()[-1].tb_lineno}] [{type(e).__name__}] {e}{Bcolors.Endc}')
-
-
+        
