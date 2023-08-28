@@ -42,16 +42,6 @@ Apps created after January 4th, 2017 must request both the users:read and users:
 Refer to a API guide [link](https://api.slack.com/methods)
 
 
-# Code example
-(1) [send webhook with markdown message](https://github.com/password123456/slack_api_example/tree/main/send_webhook_with_markdown)
-
-(2) [get list of all member of the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_all_user_list_of_channel)
-
-(3) [get list of all member of the whole workspace](https://github.com/password123456/slack_api_example/tree/main/get_all_user_list_of_the_team)
-
-(4) [get list of uploaded file, user information on the specific channel](https://github.com/password123456/slack_api_example/tree/main/get_uploaded_file_info)
-
-
 
 ## Reference Pages
 [Slack API Application](https://api.slack.com/apps)
