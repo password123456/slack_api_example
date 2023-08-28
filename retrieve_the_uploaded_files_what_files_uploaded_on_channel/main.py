@@ -1,5 +1,5 @@
 __author__ = 'https://github.com/password123456/'
-__version__ = '1.0.0-230201'
+__version__ = '1.0.2-2300828'
 
 import sys
 from datetime import datetime
@@ -23,10 +23,10 @@ class Bcolors:
 
 def get_user_info(token, member_id):
     client = WebClient(token=token)
-    result = ''
-
     try:
+        # https://api.slack.com/methods/users.info
         user_info = client.users_info(user=member_id).data
+
         display_name = user_info['user']['name']
         real_name = user_info['user']['real_name']
         phone = user_info['user']['profile']['phone']
@@ -40,18 +40,17 @@ def get_user_info(token, member_id):
             phone = 'null'
         elif not email:
             email = 'null'
-
-        result = f'"{display_name},{real_name},{email},{phone}"'
+            
+        return f'"{display_name},{real_name},{email},{phone}"'
     except SlackApiError as e:
         print(f'{Bcolors.Yellow}- Api Error:: {e} {Bcolors.Endc}')
+        return None
 
-    return result
 
-
-def get_uploaded_file_info(token, channel_id):
+def get_list_of_uploaded_files_on_channel(token, channel_id):
     client = WebClient(token=token)
-
     try:
+        # https://api.slack.com/methods/conversations.history
         result = client.conversations_history(channel=channel_id)
         conversation_history = result['messages']
         i = 0
@@ -59,8 +58,8 @@ def get_uploaded_file_info(token, channel_id):
             if 'files' in block.keys():
                 i = i + 1
                 for file_list in block['files']:
-                    upload_member_id = file_list['user']
-                    upload_user_info = get_user_info(token, upload_member_id)
+                    upload_user = file_list['user']
+                    upload_user_info = get_user_info(token, upload_user)
 
                     if not upload_user_info:
                         upload_user_info = 'User not exists'
@@ -86,10 +85,10 @@ def get_uploaded_file_info(token, channel_id):
 
 
 def main():
-    bot_token = 'YOUR_BOT_TOKEN'
-    channel = 'channel_id_you_want_to_know'
+    bot_token = 'slack_apps_oauth_token(bot_token)'
+    channel = 'Channel number for which you want to know'
 
-    get_uploaded_file_info(bot_token, channel)
+    get_list_of_uploaded_files_on_channel(bot_token, channel)
 
 
 if __name__ == '__main__':
@@ -100,5 +99,3 @@ if __name__ == '__main__':
     except Exception as e:
         print(f'{Bcolors.Yellow}- ::Exception:: Func:[{__name__.__name__}] '
               f'Line:[{sys.exc_info()[-1].tb_lineno}] [{type(e).__name__}] {e}{Bcolors.Endc}')
-
-        
