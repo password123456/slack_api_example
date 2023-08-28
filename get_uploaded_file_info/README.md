@@ -1,25 +1,9 @@
 # Bot Token Scopes
 - Two api are used.
-- And bot must be in the channel on which you want to view the list of upload files.
+- Bot must be join the channel on which you want to know informations.
 
 1) https://api.slack.com/methods/conversations.history
-
-```
-channels:history
-groups:history
-im:history
-mpim:history
-```
-
 2) https://api.slack.com/methods/users.info
-```
-users:read 
-users:read.email
-
-:note:
-Apps created after January 4th, 2017 must request both the users:read and users:read.email OAuth permission scopes to access the email field of user objects.
-(default: not show email field) so, If not grant users:read.email, email field does not return.
-```
 
 ## preview
 ```
@@ -37,6 +21,22 @@ Apps created after January 4th, 2017 must request both the users:read and users:
 - upload_preview: https://files.slack.com/files-pri/TBZ064-F04HRUVS8/blackbean.png
 - download_link: https://files.slack.com/files-pri/TBZ064-F04HRUVS8/download/blackbean.png
 ```
+
+## etc
+- If you get a NOT_IN_CHANNEL error in the API response.
+```
+{ "ok": false, "error": "not_in_channel" }
+```
+
+solution 1
+- Open channel settings > Click on the Integrations tab > Click Add apps and check out your custom app joined the channel
+
+solution 2
+- Give access to the bot to all channels by adding workspace wide scope, for example, chat:write.public. Depends on your needs and security requirements.
+  
+solution 3
+- To access the channel chat from API specify Incoming webhook. Slack will generate a unique URL with the token per each channel. check out channel id
+
 
 ## Reference Pages
 - [Slack API Guide](https://api.slack.com/methods)
