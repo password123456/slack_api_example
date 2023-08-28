@@ -41,6 +41,8 @@ Apps created after January 4th, 2017 must request both the users:read and users:
 
 Refer to a API guide [link](https://api.slack.com/methods)
 
+## And...
+- If you find this helpful, please consider giving it a **"star"**:star2: to support further improvements.
 
 
 ## Reference Pages
