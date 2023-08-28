@@ -24,7 +24,9 @@ def get_list_of_users_on_channel(token, channel_id):
     client = WebClient(token=token)
     try:
         # https://api.slack.com/methods/conversations.members
-        result = client.conversations_members(channel=channel_id, limit=400)
+        # The 'limit' parameter should be adjusted to match your environment. Default 20
+        # The maximum number of user lists to return. Fewer than the requested number of items may be returned
+        result = client.conversations_members(channel=channel_id, limit=200)
         i = 0
         for user in result['members']:
             try:
