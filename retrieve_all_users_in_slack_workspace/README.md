@@ -1,0 +1,14 @@
+# Bot Token Scopes
+- One api used. 
+
+1) https://api.slack.com/methods/users.list
+
+
+## preview
+```
+Personal information is included, so pass the preview.:)
+```
+
+## Reference Pages
+- [Slack API Guide](https://api.slack.com/methods)
+- [Python Slack Docs](http://www.slack.dev/python-slack-sdk)
