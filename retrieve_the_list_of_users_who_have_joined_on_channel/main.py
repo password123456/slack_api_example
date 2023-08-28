@@ -25,7 +25,6 @@ def get_list_of_users_on_channel(token, channel_id):
     try:
         # https://api.slack.com/methods/conversations.members
         result = client.conversations_members(channel=channel_id, limit=400)
-        # print(result['members'])
         i = 0
         for user in result['members']:
             try:
@@ -34,7 +33,6 @@ def get_list_of_users_on_channel(token, channel_id):
                 if not info['user']['is_bot']:
                     i = i + 1
                     member_id = info['user']['id']
-                    # team_id = info['user']['team_id']
                     display_name = info['user']['name']
                     real_name = info['user']['real_name']
                     phone = info['user']['profile']['phone']
