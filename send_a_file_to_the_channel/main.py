@@ -67,7 +67,7 @@ def main():
         if uploaded_file_link:
             # Display the uploaded file as a Markdown-style link, not an absolute file path.
             # e.g <https://www.stackoverflow.com|link>
-            message = f'<{uploaded_file_link}|{upload_file_title}>'
+            message = f'<!channel> Hello Guys.\nThis is for you\n<{uploaded_file_link}|{upload_file_title}>'
             chat_post_message(bot_token, channel_id, message)
 
 
