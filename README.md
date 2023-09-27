@@ -43,6 +43,8 @@ Refer to a API guide [link](https://api.slack.com/methods)
 ## And...
 - If you find this helpful, please consider giving it a **"star"**:star2: to support further improvements.
 
+## write in python request syntax
+- <a href="https://github.com/password123456/slack_api_example/blob/main/retrieve_the_list_of_users_who_have_joined_on_channel/main_python_requests.py">Retrieve the list of users who have joined on channel</a>
 
 ## Reference Pages
 [Slack API Application](https://api.slack.com/apps)
