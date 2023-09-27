@@ -1,6 +1,8 @@
 __author__ = 'https://github.com/password123456/'
 __version__ = '1.0.0-230927'
 
+# write in python requests syntax
+
 import os
 import sys
 import requests
