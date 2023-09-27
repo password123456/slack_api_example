@@ -10,11 +10,11 @@
 
 
 ## How to set up
-1. Install `slack-sdk` library
+1. Install `slack-sdk`
 ```
 # pip install slack_sdk 
 ```
-2. or Install 'requests'
+2. or Install `requests`
 ```
 # pip install requests
 ```
