@@ -69,7 +69,7 @@ def get_value_or_null(value):
 
 def main():
     token = 'slack_apps_oauth_token(bot_token)'
-    channel = 'Channel number'
+    channel_id = 'Channel number'
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 '
@@ -77,7 +77,7 @@ def main():
         'Authorization': f'Bearer {token}'
     }
 
-    result = lookup_conversations_history(headers, channel)
+    result = lookup_conversations_history(headers, channel_id)
     data = json.loads(result)
     i = 0
     if data['ok']:
