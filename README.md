@@ -51,6 +51,7 @@ Refer to a API guide [link](https://api.slack.com/methods)
 - [Bot sending direct message to user](https://github.com/password123456/slack_api_example/tree/main/bot_sending_direct_message_to_user)
 - [Bot send a file to channel](https://github.com/password123456/slack_api_example/tree/main/send_a_file_to_the_channel)
 - [Bot send a file to user as a direct_message](https://github.com/password123456/slack_api_example/tree/main/send_a_file_to_the_user_as_a_direct_message)
+- [Invite user to channel](https://github.com/password123456/slack_api_example/tree/main/invite-user-to-channel)
 # And...
 - If you find this helpful, please consider giving it a **"star"**:star2: to support further improvements.
 
