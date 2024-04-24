@@ -9,7 +9,7 @@
 - Meaningless work on the slack
 
 
-### How to set up
+# How to set up
 1. Install `slack-sdk`
 ```
 # pip install slack_sdk 
@@ -19,30 +19,9 @@
 # pip install requests
 ```
 
-2. Create Slack application bot and Set authorization scopes
+3. Refer to a API guide
+- https://api.slack.com/methods
 
-e.g) if you want to know uploaded file information in a Specific channel, grant these scope to the Bot.
-
-Two Slack API are used.
-```
-1) https://api.slack.com/methods/conversations.history
-
-channels:history
-groups:history
-im:history
-mpim:history
-
-2) https://api.slack.com/methods/users.info
-
-users:read 
-users:read.email
-
-:note:
-Apps created after January 4th, 2017 must request both the users:read and users:read.email OAuth permission scopes to access the email field of user objects.
-(default: not show email field) so, If not grant users:read.email, email field does not return.
-```
-
-Refer to a API guide [link](https://api.slack.com/methods)
 
 # Examples - python slack_sdk/requests
 - [Retrieve the list of users who have joined on channel](https://github.com/password123456/slack_api_example/tree/main/retrieve_the_list_of_users_who_have_joined_on_channel)
