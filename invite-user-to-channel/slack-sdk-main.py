@@ -1,4 +1,4 @@
-# __author__ = 'https://github.com/password123456/'
+__author__ = 'https://github.com/password123456/'
 __date__ = '2024.04.24'
 __version__ = '1.0.0'
 __status__ = 'Production'
